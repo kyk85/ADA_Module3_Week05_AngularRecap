@@ -1,0 +1,14 @@
+<div *ngIf="item">
+  <table class="table">
+    <thead>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+    </thead>
+    <tr>
+      <td>{{item.name}}</td>
+      <td>{{item.description}}</td>
+      <td>{{item.price | currency:'MYR'}}</td>
+    </tr>
+  </table>
+</div>
