@@ -11,6 +11,7 @@ export class PageListComponent implements OnInit {
   phones: Product[];
   selectedItem: Product;
   newphones: Product = {
+    id: 0,
     name: '',
     description: '',
     price: 0,
@@ -28,6 +29,7 @@ export class PageListComponent implements OnInit {
     this.selectedItem = item;
     console.log(this.selectedItem);
   }
+
   getProducts(): void {
     this.productService.getItems()
     .subscribe(data => this.phones = data);
@@ -37,6 +39,7 @@ export class PageListComponent implements OnInit {
   addItem() {
     this.productService.addItem(this.newphones);
     this.newphones = {
+      id: 0,
       name: '',
       description: '',
       price: 0,

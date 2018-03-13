@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <h2>Review Your Order:</h2>
+</div>
+
+<div class="container-fluid">
+  <div class="container">
+    <h3>Shipping Address:</h3>
+    <p>street</p>
+    <p>city</p>
+    <p>postcode</p>
+    <p>state</p>
+    <p>country</p>
+  </div>
+  <div class="container">
+    <h3>Order Total:</h3>
+  </div>
+  <div class="container">
+    <table class="table">
+      <thead>
+        <th>Qty</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Subtotal</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>test</td>
+          <td>test</td>
+          <td>test</td>
+          <td>test</td>
+        </tr>
+      </tbody>
+      <!-- <tr>
+        <td>{{item.name}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.price | currency:'MYR'}}</td>
+      </tr> -->
+    </table>
+  </div>
+  <div class="container">
+    <button type="button" class="btn" routerLink="/products">Back to Store</button>
+    <button type="button" class="btn" routerLink="/order">Edit Details</button>
+    <button type="button" class="btn">Proceed to Checkout</button>
+  </div>
+</div>
+
