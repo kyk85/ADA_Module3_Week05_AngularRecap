@@ -12,22 +12,40 @@
       <th>Subtotal</th>
     </thead>
     <tbody>
-      <tr>
+      <!-- <tr>
         <td>1</td>
         <td>test</td>
         <td>test</td>
         <td>test</td>
         <td>test</td>
-      </tr>
+      </tr> -->
+    <tr *ngFor="let cartitem of cartItems">
+      <td><input type="number" [ngModel]="cartitem?.product.quantity" value="{{cartitem.quantity}}"></td>
+      <td>{{cartitem?.product.name}}</td>
+      <td>{{cartitem?.product.description}}</td>
+      <td>{{cartitem?.product.price | currency:'MYR'}}</td>
+      <td><button type="button" class="btn btn-danger" (click)="removeItem(cartitem)">-</button>
+      </td>
+    </tr>
     </tbody>
-    <!-- <tr>
-      <td>{{item.name}}</td>
-      <td>{{item.description}}</td>
-      <td>{{item.price | currency:'MYR'}}</td>
-    </tr> -->
   </table>
+  <p style="text-align:right">Total Qty: {{totalQty}}</p>
+  <p style="text-align:right">Total Price: {{totalPrice | currency:'MYR'}}</p>
 </div>
+
+<!-- <div class="container">
+  <ul class="list-group">
+    <li *ngFor="let phone of phones" (click)="onSelect(phone)" class="list-group-item" [class.active]="phone === selectedItem">
+      {{phone.name}} <br>
+      {{phone.description}} <br>
+      {{phone.price | currency: 'MYR'}}
+    </li>
+  </ul>
+  <button type="button" class="btn" routerLink="/cart">Go to Cart</button>
+</div> -->
 
 
 <button type="button" class="btn btn-dark" routerLink="/products">Continue Shopping</button>
 <button type="button" class="btn btn-primary" routerLink="/review">Checkout</button>
+<button type="button" class="btn btn-danger" (click)="removeAllItem()">Remove All</button>
+

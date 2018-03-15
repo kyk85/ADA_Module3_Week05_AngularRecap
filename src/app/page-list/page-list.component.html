@@ -2,7 +2,7 @@
 
 <h2>List of Phones:</h2>
 
-  <div class="container">
+  <!-- <div class="container">
     <ul class="list-group">
       <li *ngFor="let phone of phones" (click)="onSelect(phone)" class="list-group-item" [class.active]="phone === selectedItem">
         {{phone.name}} <br>
@@ -11,8 +11,18 @@
       </li>
     </ul>
     <button type="button" class="btn" routerLink="/cart">Go to Cart</button>
-  </div>
+  </div> -->
 
+  <div *ngFor="let phone of phones" (click)="onSelect(phone)" class="card" style="width: 18rem;">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{phone.name}}</h5>
+      <p class="card-text">{{phone.description}}</p>
+      <p class="card-text">{{phone.price | currency: 'MYR'}}</p>
+      <p class="btn btn-primary" (click)="addToCart(phone)">Add to Cart</p>
+    </div>
+  </div>
+  
   <!-- <div>
       <h2>Add Item:</h2>
       <label>Name:
@@ -41,5 +51,5 @@
       <button>Edit Item</button>
   </div> -->
 
-  <app-product-details [item]="selectedItem"></app-product-details>
+  <!-- <app-product-details [item]="selectedItem"></app-product-details> -->
 </div>

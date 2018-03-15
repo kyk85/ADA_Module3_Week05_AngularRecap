@@ -8,6 +8,7 @@ import { PageListComponent } from './page-list/page-list.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 
 import { ProductService } from '../app/product.service';
+import { CartService } from '../app/cart.service';
 import { RouterModule, Routes } from '@angular/router';
 import { OrderComponent } from './order/order.component';
 import { OrderReviewComponent } from './order-review/order-review.component';
@@ -37,7 +38,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [
-    ProductService
+    ProductService,
+    CartService
   ],
   bootstrap: [AppComponent],
 })
