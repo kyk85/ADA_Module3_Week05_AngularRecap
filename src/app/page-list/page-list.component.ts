@@ -34,7 +34,9 @@ export class PageListComponent implements OnInit {
 
   getProducts(): void {
     this.productService.getItems()
-    .subscribe(data => this.phones = data);
+    .subscribe(data => {
+      this.phones = data;
+    });
     // console.log(this.phones);
   }
 

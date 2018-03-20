@@ -1,0 +1,5 @@
+<div *ngIf="authService.firebaseAuth.authState | async as user;" class="container-fluid header">
+    <p>{{authService.firebaseAuth.user}}</p>
+    <p>Logged in as</p>
+    <button (click)="logout()">Logout</button>
+</div>

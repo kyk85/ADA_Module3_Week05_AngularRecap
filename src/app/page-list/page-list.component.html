@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="container">
 
 <h2>List of Phones:</h2>
@@ -12,14 +13,19 @@
     </ul>
     <button type="button" class="btn" routerLink="/cart">Go to Cart</button>
   </div> -->
-
-  <div *ngFor="let phone of phones" (click)="onSelect(phone)" class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{phone.name}}</h5>
-      <p class="card-text">{{phone.description}}</p>
-      <p class="card-text">{{phone.price | currency: 'MYR'}}</p>
-      <p class="btn btn-primary" (click)="addToCart(phone)">Add to Cart</p>
+  <div class="row">
+    <div *ngFor="let phone of phones" class="col-4">
+      <div (click)="onSelect(phone)" class="card">
+        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+        <div class="card-header">
+          {{phone.name}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{phone.description}}</h5>
+          <p class="card-text">{{phone.price | currency: 'MYR'}}</p>
+          <p class="btn btn-primary" (click)="addToCart(phone)">Add to Cart</p>
+        </div>
+      </div>
     </div>
   </div>
   

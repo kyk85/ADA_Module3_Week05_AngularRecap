@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="container header">
+    <h2>Welcome to ADAZAL!</h2>
+  </div>
+
+<hr>
+
+  <div class="container">
+    <h3>Login:</h3>
+  </div>
+
+  <div class="container">
+  <form #f="ngForm" (ngSubmit)="loginUser(f.value)" class="ui form">
+    <div class="field">
+      <label for="emailInput">Your Email:</label>
+      <input type="text" id="emailInput" placeholder="Your email" name="email" ngModel>
+    </div>
+    <div class="field">
+      <label for="passwordInput">Your Password:</label>
+      <input type="password" id="passwordInput" placeholder="Your Password" name="password" ngModel>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!email || !password">Sign In</button>
+  </form>
+    <br>
+    <button type="button" class="btn btn-primary" (click)="loginWithGoogle()">Login with Google</button>
+  </div>
+</div>  

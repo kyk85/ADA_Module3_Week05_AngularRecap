@@ -27,6 +27,12 @@ export class CartComponent implements OnInit {
     }); */
   }
 
+  /* getSubTotal() {
+    this.cartItems.forEach((item, i) => {
+
+    });
+  } */
+
   removeAllItem() {
     this.cartService.removeAllItem();
     this.refreshCart();
