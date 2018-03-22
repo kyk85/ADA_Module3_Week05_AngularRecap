@@ -1,61 +1,61 @@
 <app-header></app-header>
 <div class="container">
 
-<h2>List of Phones:</h2>
+<h2>List of products:</h2>
 
   <!-- <div class="container">
     <ul class="list-group">
-      <li *ngFor="let phone of phones" (click)="onSelect(phone)" class="list-group-item" [class.active]="phone === selectedItem">
-        {{phone.name}} <br>
-        {{phone.description}} <br>
-        {{phone.price | currency: 'MYR'}}
+      <li *ngFor="let product of products" (click)="onSelect(product)" class="list-group-item" [class.active]="product === selectedItem">
+        {{product.name}} <br>
+        {{product.description}} <br>
+        {{product.price | currency: 'MYR'}}
       </li>
     </ul>
     <button type="button" class="btn" routerLink="/cart">Go to Cart</button>
   </div> -->
   <div class="row">
-    <div *ngFor="let phone of phones" class="col-4">
-      <div (click)="onSelect(phone)" class="card">
+    <div *ngFor="let product of products" class="col-4">
+      <div (click)="onSelect(product)" class="card">
         <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
         <div class="card-header">
-          {{phone.name}}
+          {{product.name}}
         </div>
         <div class="card-body">
-          <h5 class="card-title">{{phone.description}}</h5>
-          <p class="card-text">{{phone.price | currency: 'MYR'}}</p>
-          <p class="btn btn-primary" (click)="addToCart(phone)">Add to Cart</p>
+          <h5 class="card-title">{{product.description}}</h5>
+          <p class="card-text">{{product.price | currency: 'MYR'}}</p>
+          <p class="btn btn-primary" (click)="addToCart(product)">Add to Cart</p>
         </div>
       </div>
     </div>
   </div>
   
-  <!-- <div>
+  <div>
       <h2>Add Item:</h2>
       <label>Name:
-        <input [(ngModel)]="newphones.name" placeholder="Name" type="text">
+        <input [(ngModel)]="newproducts.name" placeholder="Name" type="text">
       </label>
       <label>Description:
-        <input [(ngModel)]="newphones.description" placeholder="Description" type="text">
+        <input [(ngModel)]="newproducts.description" placeholder="Description" type="text">
       </label>
       <label>Price:
-        <input [(ngModel)]="newphones.price" placeholder="Price" type="number">
+        <input [(ngModel)]="newproducts.price" placeholder="Price" type="number">
       </label>
       <button (click)="addItem()">Add Item</button>
-  </div> -->
+  </div>
 
-  <!-- <div *ngIf="selectedItem">
+  <div *ngIf="selectedItem">
       <h2>Edit Item:</h2>
       <label>Name:
-        <input [(ngModel)]="newphones.name" placeholder="{{selectedItem.name}}" type="text">
+        <input [(ngModel)]="newproducts.name" placeholder="{{selectedItem.name}}" type="text">
       </label>
       <label>Description:
-        <input [(ngModel)]="newphones.description" placeholder="{{selectedItem.description}}" type="text">
+        <input [(ngModel)]="newproducts.description" placeholder="{{selectedItem.description}}" type="text">
       </label>
       <label>Price:
-        <input [(ngModel)]="newphones.price" placeholder="{{selectedItem.price}}" type="number">
+        <input [(ngModel)]="newproducts.price" value="{{selectedItem.price}}" type="number">
       </label>
       <button>Edit Item</button>
-  </div> -->
+  </div>
 
   <!-- <app-product-details [item]="selectedItem"></app-product-details> -->
 </div>

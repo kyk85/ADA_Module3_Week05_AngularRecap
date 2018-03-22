@@ -10,9 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./page-list.component.css']
 })
 export class PageListComponent implements OnInit {
-  phones: Product[];
+
+  products: Product[];
   selectedItem: Product;
-  newphones: Product = {
+  newproducts: Product = {
     id: 0,
     name: '',
     description: '',
@@ -24,25 +25,25 @@ export class PageListComponent implements OnInit {
 
   ngOnInit() {
     this.getProducts();
-    console.log(this.phones);
   }
 
   onSelect(item: Product) {
     this.selectedItem = item;
-    // console.log(this.selectedItem);
+    console.log(this.selectedItem);
   }
 
   getProducts(): void {
     this.productService.getItems()
     .subscribe(data => {
-      this.phones = data;
+      this.products = data;
+      console.log(this.products);
     });
-    // console.log(this.phones);
+    // console.log(this.products);
   }
 
   addItem() {
-    this.productService.addItem(this.newphones);
-    this.newphones = {
+    this.productService.addItem(this.newproducts);
+    this.newproducts = {
       id: 0,
       name: '',
       description: '',
@@ -50,9 +51,9 @@ export class PageListComponent implements OnInit {
     };
   }
 
-  addToCart(item: Product) {
-    this.cartService.addItem(item);
-    this.router.navigateByUrl('/cart');
-  }
+  // addToCart(item: Product) {
+  //   this.cartService.addItem(item);
+  //   this.router.navigateByUrl('/cart');
+  // }
 
 }

@@ -2,46 +2,36 @@ import { Injectable } from '@angular/core';
 import { Product } from '../app/product';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
+import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 
 @Injectable()
 export class ProductService {
 
-  phones: Product[] = [{
-    id: 1,
-    name: 'iPhone X',
-    description: 'The latest and greatest!',
-    price: 3999
-  }, {
-    id: 2,
-    name: 'Huawei P10 Plus',
-    description: 'Better than the rest!',
-    price: 2499
-  }, {
-    id: 3,
-    name: 'LG G15',
-    description: 'The one and only!',
-    price: 2399
-  }];
+  private productsCollection: AngularFirestoreCollection<Product>;
+  products: Observable<Product[]>;
 
-  newphones: Product = {
-    id: 0,
-    name: '',
-    description: '',
-    price: 0,
-  };
+  // newphones: Product = {
+  //   id: 0,
+  //   name: '',
+  //   description: '',
+  //   price: 0,
+  // };
 
-  constructor() { }
+  constructor(private afs: AngularFirestore) {
+    this.productsCollection = afs.collection<Product>('products');
+    this.products = this.productsCollection.valueChanges();
+  }
 
   addItem(item) {
-    this.phones.push(item);
+    this.productsCollection.add(item);
   }
 
   getItems(): Observable<Product[]> {
-    return of(this.phones);
+    return this.products;
   }
 
-  selectItem(id: number): Observable<Product> {
-    return of(this.phones.find(data => data.id === id));
-  }
+  /* selectItem(id: number): Observable<Product> {
+    return of(this.products.find(data => data.id === id));
+  } */
 
 }

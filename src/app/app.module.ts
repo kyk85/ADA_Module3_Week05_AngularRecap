@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-
 import { AppComponent } from './app.component';
 import { PageListComponent } from './page-list/page-list.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
@@ -14,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 
 import { ProductService } from '../app/product.service';
 import { CartService } from '../app/cart.service';
+import { UserService } from '../app/user.service';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AngularFireModule } from 'angularfire2';
@@ -57,7 +57,8 @@ const routes: Routes = [
   providers: [
     ProductService,
     CartService,
-    AuthService
+    AuthService,
+    UserService
   ],
   bootstrap: [AppComponent],
 })

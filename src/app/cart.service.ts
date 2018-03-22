@@ -21,22 +21,22 @@ export class CartService {
     return of(this.cart);
   }
 
-  public addItem(newProduct: Product, quantity: number = 1) {
-    // console.log(newProduct);
-    const newItem = new CartItem(newProduct, quantity);
-    let isAdded = false;
-    this.cart.forEach((element) => {
-      if (element.product.id === newItem.product.id) {
-        element.quantity += quantity;
-        isAdded = true;
-      }
-      });
-      if (!isAdded) {
-        this.cart.push(newItem);
-      }
-      this.calculateItemAndPrice();
-      // console.log(newItem);
-  }
+  // public addItem(newProduct: Product, quantity: number = 1) {
+  //   // console.log(newProduct);
+  //   const newItem = new CartItem(newProduct, quantity);
+  //   let isAdded = false;
+  //   this.cart.forEach((element) => {
+  //     if (element.product.id === newItem.product.id) {
+  //       element.quantity += quantity;
+  //       isAdded = true;
+  //     }
+  //     });
+  //     if (!isAdded) {
+  //       this.cart.push(newItem);
+  //     }
+  //     this.calculateItemAndPrice();
+  //     // console.log(newItem);
+  // }
 
   public removeItem(product: CartItem) {
     this.cart.forEach((element, i) => {

@@ -21,13 +21,13 @@ export class ProductDetailsComponent implements OnInit {
     private productService: ProductService) { }
 
   ngOnInit() {
-    this.selectItem();
+    // this.selectItem();
   }
 
-  selectItem() {
+ /*  selectItem() {
     const id = +this.route.snapshot.paramMap.get('id');
     this.productService.selectItem(id)
       .subscribe(data => this.item = data);
-  }
+  } */
 
 }
